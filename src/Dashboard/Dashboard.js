@@ -15,12 +15,21 @@ import Chat2 from "./components/ChatBox/Components/ChatBox.js/chatBox2";
 import Chat3 from "./components/ChatBox/Components/ChatBox.js/chatBox3";
 import './Dashboard.css';
 import { AiOutlineClose } from 'react-icons/ai';
-
+import axios from 'axios';
+import { setTurnServers } from '../utils/webRTC/TURN';
 
 const Dashboard = ({ username, callState }) => {
   useEffect(() => {
+    axios.get('https://video-talker-backend.herokuapp.com/api/get-turn-credentials').then(
+      responseData => {
+        console.log(responseData);
+        setTurnServers(responseData.data.token.iceServers);
     webRTCHandler.getLocalStream();
     webRTCGroupHandler.connectWithMyPeer();
+      }
+    ).catch(err => {
+      console.log(err);
+    })
   }, []);
 
   const [width, setwidth] = useState('55vw')
