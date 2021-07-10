@@ -1,6 +1,7 @@
 import store from '../../store/store';
 import { setLocalStream, setCallState, callStates, setCallingDialogVisible, setCallerUsername, setCallRejected, setRemoteStream, setScreenSharingActive, resetCallDataState, setMessage } from '../../store/actions/callActions';
 import * as wss from '../wssConnection/wssConnection';
+import { getTurnServers } from './TURN';
 
 const preOfferAnswers = {
   CALL_ACCEPTED: 'CALL_ACCEPTED',
@@ -16,11 +17,6 @@ const defaultConstrains = {
   audio: true
 };
 
-const configuration = {
-  iceServers: [{
-    urls: 'stun:stun.l.google.com:13902'
-  }]
-};
 
 let connectedUserSocketId;
 let peerConnection;
@@ -41,7 +37,6 @@ export const getLocalStream = () => {
 ;
 
 const createPeerConnection = () => {
-
   const turnServers = getTurnServers();
   
   const configuration = {
