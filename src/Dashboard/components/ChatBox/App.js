@@ -6,7 +6,7 @@ import Chatbox from './Components/ChatBox.js/chatBox' ;
 function App(props) {
   return (
     <div  className="App">
-      <Chatbox username={props.to}/>
+      <Chatbox username={props.username}/>
     </div>
   );
 }

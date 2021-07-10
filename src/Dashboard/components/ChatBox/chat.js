@@ -19,8 +19,7 @@ function Chat (props) {
 }
 
 function openChat (to) {
-    <App to={to} />
-    // document.getElementById('chat-box').innerHTML+= <App username={'khs'}/>
+    document.getElementById('chat-box').appendChild= <App username={'khs'}/>
     //document.getElementById('chat-box').innerHTML+= to ;
 }
 

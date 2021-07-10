@@ -18,12 +18,12 @@ const ActiveUsersListItem = (props) => {
   return (
     <div className='active_user_list_item' >
       <div className='active_user_list_image_container'>
-        <img className='active_user_list_image' src={userAvatar} />
+        <img style={{width:40}} className='active_user_list_image' src={userAvatar} />
       </div>
       <span className='active_user_list_text'>{activeUser.username}</span>
 
       <FcVideoCall onClick={handleListItemPressed} style={{height:30,width:30,marginLeft:10}}/>
-      <BiMessageRoundedDetail onClick={()=>{openChat(activeUser.username)}} style={{height:30,width:30,marginLeft:10}}/>
+      {/* <BiMessageRoundedDetail onClick={()=>{openChat(activeUser.username)}} style={{height:30,width:30,marginLeft:10}}/> */}
     </div>
   );
 };

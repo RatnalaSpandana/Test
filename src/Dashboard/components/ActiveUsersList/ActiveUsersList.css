@@ -16,9 +16,9 @@
 }
 
 .active_user_list_image_container {
-  width: 60px;
-  margin-left: 40px;
-  margin-right: 40px;
+  
+  margin-left: 10px;
+  margin-right: 15px;
 }
 
 .active_user_list_text {
