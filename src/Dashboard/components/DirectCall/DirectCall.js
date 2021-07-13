@@ -24,7 +24,7 @@ const DirectCall = (props) => {
 
   return (
     <>
-      <LocalVideoView localStream={localStream} />
+      <LocalVideoView style={{backgroundColor:'red',marginLeft:100}} localStream={localStream} />
       {remoteStream && callState === callStates.CALL_IN_PROGRESS && <RemoteVideoView remoteStream={remoteStream} />}
       {callRejected.rejected && <CallRejectedDialog
         reason={callRejected.reason}
@@ -33,7 +33,7 @@ const DirectCall = (props) => {
       {callState === callStates.CALL_REQUESTED && <IncomingCallDialog callerUsername={callerUsername} />}
       {callingDialogVisible && <CallingDialog />}
       {remoteStream && callState === callStates.CALL_IN_PROGRESS && <ConversationButtons {...props} />}
-      {remoteStream && callState === callStates.CALL_IN_PROGRESS && <Messenger message={message} setDirectCallMessage={setDirectCallMessage} />}
+      {/* {remoteStream && callState === callStates.CALL_IN_PROGRESS && <Messenger message={message} setDirectCallMessage={setDirectCallMessage} />} */}
     </>
   );
 };
